@@ -1,10 +1,6 @@
 !!! DISCLAIMER !!! 
  
   A file a 2024-es, illetve korabbi zh coderunner feladatait tartalmazza.
-  
-  Az altalam feltoltott fajlok tartalmaznak Visual Studio 22-hoz valo fajlokat, 
-ha Code Blocks-on vagy egyeb IDE-t hasznalsz, toltsd le a RAR fajlt, amiben
-csak a szukseges .cpp, .h, .hpp fajlok vannak.
   A projekt eddig, 8 coderunner feladat leirasat tartalmazza, ezek egyreszehez
 megoldas is van (sajat, vagy raktarbol lopott), illetve probaltam gtest-tel 
 ellenorzo teszteket is irni, hogy konnyebb legyen gyakorolni. 
