@@ -19,3 +19,6 @@ valo kiegeszitesek talahatoak]
 
   Ha idom engedi bovitem a megoldasokat es a teszteket, ha valami hibat talaltok, irjatok 
 es megprobalom kijavitani. Jo keszulest :)
+
+!!! UPDATE!!!
+Delutanra javitom, hogy ne legyen minden kikommentelve
