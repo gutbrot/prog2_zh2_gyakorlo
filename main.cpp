@@ -1,7 +1,7 @@
 /*	
 									!!! DISCLAIMER !!! 
  
-	A file a 2024-es zh coderunner feladatait tartalmazza.
+	A file a 2024-es, illetve korabbi zh coderunner feladatait tartalmazza.
 
 	A feladatok leiras es megoldasa az xyz.h fajlban talalhato, a kodot a vonal ala kell 
 	megirni (jelenleg ott a sajat megoldasom van). [Megjegyzes: az xyz.h-ba ird a megoldast,
