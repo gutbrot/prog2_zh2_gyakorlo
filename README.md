@@ -1,4 +1,4 @@
-								!!! DISCLAIMER !!! 
+			!!! DISCLAIMER !!! 
  
   A file a 2024-es, illetve korabbi zh coderunner feladatait tartalmazza.
   
