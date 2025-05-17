@@ -26,33 +26,32 @@
 
 //==============================================================================================================
 
-#include <vector>
-#include <iostream>
-
-// feltetelezem nem vector tipussal kell megoldani, hanem sajttal
-template<typename T, size_t M = 10>
-class MySet {
-	size_t size;
-	size_t cap;
-	T elements[M];
-public:
-	bool contains(T n) const {
-		for (size_t i = 0; i < elements.capacity(); i++){
-			if (elements[i] == n)
-				return true;
-		}
-		return false;
-	}
-	void insert(T n) {
-		if (elements.size >= elements.capacity)
-			throw "error";
-		elements[size] = n;
-		size++;
-	}
-	size_t size() const{
-		return size;
-	}
-	size_t capacity() const{
-		return cap;
-	}
-};
+//#include <iostream>
+//
+//// feltetelezem nem vector tipussal kell megoldani, hanem sajttal
+//template<typename T, size_t M = 10>
+//class MySet {
+//	size_t size;
+//	size_t cap;
+//	T elements[M];
+//public:
+//	bool contains(T n) const {
+//		for (size_t i = 0; i < elements.capacity(); i++){
+//			if (elements[i] == n)
+//				return true;
+//		}
+//		return false;
+//	}
+//	void insert(T n) {
+//		if (elements.size >= elements.capacity)
+//			throw "error";
+//		elements[size] = n;
+//		size++;
+//	}
+//	size_t size() {
+//		return size;
+//	}
+//	size_t capacity() const{
+//		return cap;
+//	}
+//};

@@ -5,22 +5,22 @@
 	Adapter a következõ sablon, ami különbözõ értékek (VAL) elõfordulási számának meghatározására alkalmas:
 */
 
-template<typename VAL>
-class Counter {
-    std::map<VAL, size_t> values;
-public:
-    virtual void reset() {
-        values.clear();
-    }
-
-    virtual void count(const VAL& key) {
-        values[key]++;
-    }
-
-    virtual size_t get(const VAL& key) const {
-        return values.at(key); // hiba esetén std::out_of_range exp-et dob
-    }
-};
+//template<typename VAL>
+//class Counter {
+//    std::map<VAL, size_t> values;
+//public:
+//    virtual void reset() {
+//        values.clear();
+//    }
+//
+//    virtual void count(const VAL& key) {
+//        values[key]++;
+//    }
+//
+//    virtual size_t get(const VAL& key) const {
+//        return values.at(key); // hiba esetén std::out_of_range exp-et dob
+//    }
+//};
 
 /*
 

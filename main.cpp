@@ -36,11 +36,11 @@ int main() {
 #endif 
 
 #if TESZT == 3
+	// meg nincs hozza teszt
 	MySetTest::runTest();
 #endif
 
 #if TESZT == 4
-	// meg nincs hozza teszt
 	IndexgenTest::runTest();
 #endif
 

@@ -1,0 +1,20 @@
+﻿  main.cpp
+H:\My Drive\egyetem\prog 2\gyakorlo\prog2_zh2_gyakorlo\PyTomb.hpp(44,4): warning C4003: not enough arguments for function-like macro invocation 'EXPECT_NO_THROW'
+  (compiling source file 'main.cpp')
+  
+H:\My Drive\egyetem\prog 2\gyakorlo\prog2_zh2_gyakorlo\PyTomb.h(61,28): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+      H:\My Drive\egyetem\prog 2\gyakorlo\prog2_zh2_gyakorlo\PyTomb.h(61,28):
+      the template instantiation context (the oldest one first) is
+          H:\My Drive\egyetem\prog 2\gyakorlo\prog2_zh2_gyakorlo\PyTomb.hpp(48,19):
+          see reference to class template instantiation 'PyTomb<double>' being compiled
+          H:\My Drive\egyetem\prog 2\gyakorlo\prog2_zh2_gyakorlo\PyTomb.h(60,5):
+          while compiling class template member function 'T &PyTomb<T>::operator [](int)'
+          with
+          [
+              T=double
+          ]
+              H:\My Drive\egyetem\prog 2\gyakorlo\prog2_zh2_gyakorlo\PyTomb.hpp(53,54):
+              see the first reference to 'PyTomb<double>::operator []' in 'PyTombTest::runTest'
+  
+  zh2_2024.vcxproj -> H:\My Drive\egyetem\prog 2\gyakorlo\prog2_zh2_gyakorlo\x64\Debug\zh2_2024.exe
