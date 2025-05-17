@@ -28,10 +28,12 @@
 
 int main() {
 #if TESZT == 1
+	// mukodik
 	PyTombTest::runTest();
 #endif 
 
 #if TESZT == 2
+	// mukodik
 	SComplexTest::runTest();
 #endif 
 
@@ -41,6 +43,7 @@ int main() {
 #endif
 
 #if TESZT == 4
+	// mukodik
 	IndexgenTest::runTest();
 #endif
 
