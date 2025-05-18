@@ -1,30 +1,50 @@
 #pragma once
 /*
-	Egyes programozási nyelvekben a tömbök indexhatárai is megadhatók deklarációjukkor. Így pl. lehet olyan tömböt létrehozni, ami -3-tól +5-
-ig indexelhetõ.
-Készítsen adapter sablont (ArrayLB) az std::vector tárolóhoz, ami lehetõvé teszi, hogy ne csak 0-tól indexelhetõ vektorokat hozzunk létre. A
-sablon elsõ paramétere az adattípus, a második pedig egy int (N), ami az alsó indexhatár. Alapértelmezésként N = 0 legyen! A sablon csak
-az indexelés mûveletét alakítsa át! A többi publikus mûveletet (konstruktorokat is) változtatás nélkül tegye elérhetõvé!
-Az ArrayLB sablonnal létrehozott T elemeket tartalmazó objektum legyen kompatibilis az std::vector sablonnal létrehozott T elemeket
-tartalmazó objektummal! Elegendõ az indexelõ operátorokat (operator[]) megvalósítania, az at() helyes mûködését nem vizsgáljuk! Példa az
-adapter használatára:
+	Egyes programozÃ¡si nyelvekben a tÃ¶mbÃ¶k indexhatÃ¡rai is megadhatÃ³k deklarÃ¡ciÃ³jukkor. Ãgy pl. lehet olyan tÃ¶mbÃ¶t lÃ©trehozni, ami -3-tÃ³l +5-
+ig indexelhetÅ‘.
+KÃ©szÃ­tsen adapter sablont (ArrayLB) az std::vector tÃ¡rolÃ³hoz, ami lehetÅ‘vÃ© teszi, hogy ne csak 0-tÃ³l indexelhetÅ‘ vektorokat hozzunk lÃ©tre. A
+sablon elsÅ‘ paramÃ©tere az adattÃ­pus, a mÃ¡sodik pedig egy int (N), ami az alsÃ³ indexhatÃ¡r. AlapÃ©rtelmezÃ©skÃ©nt N = 0 legyen! A sablon csak
+az indexelÃ©s mÅ±veletÃ©t alakÃ­tsa Ã¡t! A tÃ¶bbi publikus mÅ±veletet (konstruktorokat is) vÃ¡ltoztatÃ¡s nÃ©lkÃ¼l tegye elÃ©rhetÅ‘vÃ©!
+Az ArrayLB sablonnal lÃ©trehozott T elemeket tartalmazÃ³ objektum legyen kompatibilis az std::vector sablonnal lÃ©trehozott T elemeket
+tartalmazÃ³ objektummal! ElegendÅ‘ az indexelÅ‘ operÃ¡torokat (operator[]) megvalÃ³sÃ­tania, az at() helyes mÅ±kÃ¶dÃ©sÃ©t nem vizsgÃ¡ljuk! PÃ©lda az
+adapter hasznÃ¡latÃ¡ra:
 
-ArrayLB<int, -1> vi(3);			// vi 3 elemû int vektor, ami -1..+1 között indexelhetõ
+ArrayLB<int, -1> vi(3);			// vi 3 elemÅ± int vektor, ami -1..+1 kÃ¶zÃ¶tt indexelhetÅ‘
 vi[-1] = 12;
-vi.push_back(15);				// std::vector minden tagfüggvénye elérhetõ
+vi.push_back(15);				// std::vector minden tagfÃ¼ggvÃ©nye elÃ©rhetÅ‘
 
 int t[] = { 1, 2, 3, 4, 5 };
-ArrayLB<int, -5> vt(t, t + 5);	// vt 5 elemû int vektor, ami -5..-1 között indexelhetõ, és
-								// t-bõl inicializált (1,2,3,4,5 elemekkel)
+ArrayLB<int, -5> vt(t, t + 5);	// vt 5 elemÅ± int vektor, ami -5..-1 kÃ¶zÃ¶tt indexelhetÅ‘, Ã©s
+								// t-bÅ‘l inicializÃ¡lt (1,2,3,4,5 elemekkel)
 
-std::vector<int> v = vi;		// kompatibilitás miatt
-ArrayLB<double, 10> dd;			// dd 0 elemû double vektor
+std::vector<int> v = vi;		// kompatibilitÃ¡s miatt
+ArrayLB<double, 10> dd;			// dd 0 elemÅ± double vektor
 dd.insert(dd.begin(), 3.14);	//
 std::cout << dd[10];			// KIIR 3.14
 
-	Ügyeljen a sorozattárolókra jellemzõ konstruktorok megvalósítására is!Az std::vector 
-	sablon alapértelmezett sablonparamétereit(pl.allocator), hagyja alapértelmezettnek!
+	Ãœgyeljen a sorozattÃ¡rolÃ³kra jellemzÅ‘ konstruktorok megvalÃ³sÃ­tÃ¡sÃ¡ra is!Az std::vector 
+	sablon alapÃ©rtelmezett sablonparamÃ©tereit(pl.allocator), hagyja alapÃ©rtelmezettnek!
 */
 
 //==============================================================================================================
 
+#pragma once
+
+#include <iostream>
+#include <vector>
+
+template<typename T, int N = 0>
+class ArrayLB : public std::vector<T> {
+public:
+    // Ã–rÃ¶kÃ¶lt konstruktorok hasznÃ¡lata
+    using std::vector<T>::vector;
+
+    // IndexelÃ©s mÃ³dosÃ­tÃ¡sa: alsÃ³ hatÃ¡rtÃ³l induljon
+    T& operator[](int index) {
+        return std::vector<T>::operator[](index - N);
+    }
+
+    const T& operator[](int index) const {
+        return std::vector<T>::operator[](index - N);
+    }
+};
