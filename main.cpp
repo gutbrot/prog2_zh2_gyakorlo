@@ -45,13 +45,11 @@ int main() {
 #endif
 
 #if TESZT == 5
-	// meg nincs megoldas
 	// meg nincs hozza teszt
 	StoreTest::runTest();
 #endif
 
 #if TESZT == 6
-	// meg nincs megoldas
 	// meg nincs hozza teszt
 	StoreTest2::runTest();
 #endif
@@ -63,8 +61,6 @@ int main() {
 #endif
 
 #if TESZT == 8
-	// meg nincs megoldas
-	// meg nincs hozza teszt
 	ArrayLBTest::runTest();
 #endif
 
