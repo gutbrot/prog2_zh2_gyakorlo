@@ -1,50 +1,42 @@
-//#pragma once
-///*
-//	Tételezze fel, hogy az elõzõ feladatban elkészített Store osztály hibátlanul mûködik, 
-//	melynek megismételjük a deklarációját:
-//*/
-//
-//// store.h
-//#ifndef STORE_H_INCLUDED
-//#define STORE_H_INCLUDED
+#pragma once
+/*
+	TÃ©telezze fel, hogy az elÅ‘zÅ‘ feladatban elkÃ©szÃ­tett Store osztÃ¡ly hibÃ¡tlanul mÅ±kÃ¶dik, 
+	melynek megismÃ©teljÃ¼k a deklarÃ¡ciÃ³jÃ¡t:
+*/
+
+/// Ki van kommentelve, mert kulonben ujra lenne definialva
+ 
 //#include <iostream>
 //
 //class Store {
-//    int* data; // pointer a tárolóra
-//    int nVal; // aktuális darabszám
+//    int* data; // pointer a tÃ¡rolÃ³ra
+//    int nVal; // aktuÃ¡lis darabszÃ¡m
 //public:
 //    Store();
 //    Store(const Store&);
 //    Store& operator=(const Store&);
 //    void add(int);
-//    void list(std::ostream& os) const; // az új adatot a tömb végére teszi
+//    void list(std::ostream& os) const; // az Ãºj adatot a tÃ¶mb vÃ©gÃ©re teszi
 //
 //    virtual ~Store();
 //};
-//
-//#endif // STORE_H_INCLUDED
-//
-///*
-//    Készítsen inszertert az osztályhoz, ami vesszõvel elválasztva (ugyanúgy, ahogy a list() 
-//    kiírja a megadott std::ostream-re a tároló tartalmát! Mûködjön helyesen az alábbi kódrészlet:
-//
-//    Store s1;
-//    s1.add(2);
-//    s1.add(3);
-//    std::cout << s1 << ":" << s1; // KIÍR: 2, 3:2, 3
-//*/
-//
-////==============================================================================================================
-//
-//// !!! Raktarrol loptam ezt a megoldast !!!
-//
-//
-//// store.cpp
-//#include "store.h"
-//
-//// Itt készítse el a tagfüggvényeket és az inszertert!
-//
-//std::ostream& operator<<(std::ostream& os, const Store& tag) {
-//    tag.list(os);
-//    return os;
-//}
+
+/*
+    KÃ©szÃ­tsen inszertert az osztÃ¡lyhoz, ami vesszÅ‘vel elvÃ¡lasztva (ugyanÃºgy, ahogy a list() 
+    kiÃ­rja a megadott std::ostream-re a tÃ¡rolÃ³ tartalmÃ¡t! MÅ±kÃ¶djÃ¶n helyesen az alÃ¡bbi kÃ³drÃ©szlet:
+
+    Store s1;
+    s1.add(2);
+    s1.add(3);
+    std::cout << s1 << ":" << s1; // KIÃR: 2, 3:2, 3
+*/
+//==============================================================================================================
+
+// !!! Raktarrol loptam ezt a megoldast !!!
+#include "Store.h"
+
+// Itt kÃ©szÃ­tse el a tagfÃ¼ggvÃ©nyeket Ã©s az inszertert!
+std::ostream& operator<<(std::ostream& os, const Store& tag) {
+    tag.list(os);
+    return os;
+}
