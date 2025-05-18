@@ -1,89 +1,85 @@
-//#pragma once
-///*
-//	Egész számok tárolásához készítettük az alábbi osztályt (Store), ami dinamikus memóriában 
-//	létrehozott tömbben tárolja az adatokat.
-//*/
-//
-//// store.h
-//#include <iostream>
-//
-//class Store {
-//    int* data; // pointer a tárolóra
-//    int nVal; // aktuális darabszám
-//public:
-//    Store() : data(nullptr), nVal(0) {}
-//    ~Store() { delete[] data; }
-//    Store& operator=(const Store&);
-//    void add(int);
-//
-//    void list(std::ostream& os) const { // kiírja az adatokat vesszõvel elválasztva
-//        for (int i = 0; i < nVal; ++i) {
-//            os << (i > 0 ? ", " : "") << data[i]; // elõd elõtt nincs vesszõ
-//        }
-//        os << std::endl;
-//    }
-//
-//    virtual ~Store() { delete[] data; }
-//};
-//
-///*
-//    Sajnos a store.cpp fájl elveszett, amiben az osztály inline függvényei (copyctor, op=, add) 
-//    definiálták. Készítse el a hiányzó kívüli definiált tagfüggvényeket úgy, hogy az osztály 
-//    használatakor ne lépjen fel memóriakezelési hibat Mûködjön helyesen az alábbi kódrészlet:    
-//
-//    Store s1;
-//    s1.add(2);
-//    s1.add(3);
-//    s1.list(std::cout); // KIÍR: 2, 3
-//    for (int i = 0; i < 3; ++i) s1.add(i+10);
-//    Store s2 = s1;
-//    Store s3;
-//    s3 = s2 = s1;
-//    s3.list(std::cout); // KIÍR: 2, 3, 10, 11, 12
-//*/
-//
-////==============================================================================================================
-//
-//// !!! Raktarrol loptam ezt a megoldast !!!
-//
-//// store.cpp -> kikommenteltem mert ez itt nem kell
-//// #include "store.h" -> kikommenteltem mert ez itt nem kell
-//
-//// Itt készítse el a tagfüggvényeket!
-//// Ahol szükséges, hogy mit készített el, tegye definiálttá a megfelelõ makrót (törölje a //-t):
-////#define VAN_ADD // ha kész a add tagfüggvény
-////#define VAN_COPY // ha kész a copy konstruktor
-////#define VAN_ASSIGN // ha kész az op=
-//// <- itt erre nincs szukseg
-//
-//void Store::add(int szam) {
-//    int* uj;
-//    uj = new int[nVal + 1];
-//    for (size_t i = 0; i < nVal; i++) {
-//        uj[i] = data[i];
-//    }
-//    uj[nVal] = szam;
-//    delete[] data;
-//    data = uj;
-//    nVal++;
-//}
-//
-//Store::Store(const Store& rhs) {
-//    nVal = rhs.nVal;
-//    data = new int[nVal];
-//    for (size_t i = 0; i < nVal; i++) {
-//        data[i] = rhs.data[i];
-//    }
-//}
-//
-//Store& Store::operator=(const Store& rhs) {
-//    if (this != &rhs) {
-//        delete[] data;
-//        nVal = rhs.nVal;
-//        data = new int[nVal];
-//        for (size_t i = 0; i < nVal; i++) {
-//            data[i] = rhs.data[i];
-//        }
-//    }
-//    return *this;
-//}
+#pragma once
+//EgÃ©sz szÃ¡mok tÃ¡rolÃ¡sÃ¡hoz kÃ©szÃ­tettÃ¼k az alÃ¡bbi osztÃ¡lyt (Store), ami dinamikus memÃ³riÃ¡ban 
+//lÃ©trehozott tÃ¶mbben tÃ¡rolja az adatokat.
+
+// store.h
+#include <iostream>
+
+class Store {
+    int* data; // pointer a tÃ¡rolÃ³ra
+    int nVal; // aktuÃ¡lis darabszÃ¡m
+public:
+    Store() : data(nullptr), nVal(0) {}
+    Store(const Store&);
+    Store& operator=(const Store&);
+    void add(int);
+
+    void list(std::ostream& os) const { // kiÃ­rja az adatokat vesszÅ‘vel elvÃ¡lasztva
+        for (int i = 0; i < nVal; ++i) {
+            os << (i > 0 ? ", " : "") << data[i]; // elÅ‘d elÅ‘tt nincs vesszÅ‘
+        }
+        os << std::endl;
+    }
+
+    virtual ~Store() { delete[] data; }
+};
+
+// Sajnos a store.cpp fÃ¡jl elveszett, amiben az osztÃ¡ly inline fÃ¼ggvÃ©nyei (copyctor, op=, add) 
+// definiÃ¡ltÃ¡k. KÃ©szÃ­tse el a hiÃ¡nyzÃ³ kÃ­vÃ¼l definiÃ¡lt tagfÃ¼ggvÃ©nyeket Ãºgy, hogy az osztÃ¡ly 
+// hasznÃ¡latakor ne lÃ©pjen fel memÃ³riakezelÃ©si hibat. MÅ±kÃ¶djÃ¶n helyesen az alÃ¡bbi kÃ³drÃ©szlet:    
+
+//  Store s1;
+//  s1.add(2);
+//  s1.add(3);
+//  s1.list(std::cout); // KIÃR: 2, 3
+//  for (int i = 0; i < 3; ++i) s1.add(i+10);
+//  Store s2 = s1;
+//  Store s3;
+//  s3 = s2 = s1;
+//  s3.list(std::cout); // KIÃR: 2, 3, 10, 11, 12
+
+//==============================================================================================================
+
+// !!! Raktarrol loptam ezt a megoldast !!!
+
+// store.cpp -> kikommenteltem mert ez itt nem kell
+// #include "store.h" -> kikommenteltem mert ez itt nem kell
+
+// Itt kÃ©szÃ­tse el a tagfÃ¼ggvÃ©nyeket!
+// Ahol szÃ¼ksÃ©ges, hogy mit kÃ©szÃ­tett el, tegye definiÃ¡lttÃ¡ a megfelelÅ‘ makrÃ³t (tÃ¶rÃ¶lje a //-t):
+// #define VAN_ADD // ha kÃ©sz a add tagfÃ¼ggvÃ©ny
+// #define VAN_COPY // ha kÃ©sz a copy konstruktor
+// #define VAN_ASSIGN // ha kÃ©sz az op=
+// <- itt erre nincs szukseg
+
+void Store::add(int szam) {
+    int* uj;
+    uj = new int[nVal + 1];
+    for (size_t i = 0; i < nVal; i++) {
+        uj[i] = data[i];
+    }
+    uj[nVal] = szam;
+    delete[] data;
+    data = uj;
+    nVal++;
+}
+
+Store::Store(const Store& rhs) {
+    nVal = rhs.nVal;
+    data = new int[nVal];
+    for (size_t i = 0; i < nVal; i++) {
+        data[i] = rhs.data[i];
+    }
+}
+
+Store& Store::operator=(const Store& rhs) {
+    if (this != &rhs) {
+        delete[] data;
+        nVal = rhs.nVal;
+        data = new int[nVal];
+        for (size_t i = 0; i < nVal; i++) {
+            data[i] = rhs.data[i];
+        }
+    }
+    return *this;
+}
